@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.start_button = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,67 +44,64 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.stop_button = new System.Windows.Forms.Button();
+            this.clerks_count = new System.Windows.Forms.NumericUpDown();
+            this.queue_length = new System.Windows.Forms.NumericUpDown();
+            this.step_size = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lostClientsCounter = new System.Windows.Forms.Label();
+            this.servedClientsCounter = new System.Windows.Forms.Label();
+            this.timeCounter = new System.Windows.Forms.Label();
+            this.dayCounter = new System.Windows.Forms.Label();
+            this.profitCounter = new System.Windows.Forms.Label();
+            this.clientsCounter = new System.Windows.Forms.Label();
+            this.requestnum7 = new System.Windows.Forms.Label();
+            this.requestnum6 = new System.Windows.Forms.Label();
+            this.requestnum5 = new System.Windows.Forms.Label();
+            this.requestnum4 = new System.Windows.Forms.Label();
+            this.requestnum3 = new System.Windows.Forms.Label();
+            this.requestnum2 = new System.Windows.Forms.Label();
+            this.requestnum1 = new System.Windows.Forms.Label();
+            this.window7 = new System.Windows.Forms.Label();
+            this.window6 = new System.Windows.Forms.Label();
+            this.window5 = new System.Windows.Forms.Label();
+            this.window4 = new System.Windows.Forms.Label();
+            this.window3 = new System.Windows.Forms.Label();
+            this.window2 = new System.Windows.Forms.Label();
+            this.window1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.toTheEnd_button = new System.Windows.Forms.Button();
+            this.exit_button = new System.Windows.Forms.Button();
+            this.tick_button = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.time_serve2 = new System.Windows.Forms.NumericUpDown();
+            this.time_serve1 = new System.Windows.Forms.NumericUpDown();
+            this.time_between2 = new System.Windows.Forms.NumericUpDown();
+            this.time_between1 = new System.Windows.Forms.NumericUpDown();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.clerks_count)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queue_length)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.step_size)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.time_serve2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_serve1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_between2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_between1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // start_button
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(4, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 34);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "С начала";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(118, 319);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(27, 27);
-            this.textBox6.TabIndex = 42;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(34, 319);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(27, 27);
-            this.textBox7.TabIndex = 41;
+            this.start_button.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.start_button.Location = new System.Drawing.Point(168, 21);
+            this.start_button.Name = "start_button";
+            this.start_button.Size = new System.Drawing.Size(116, 34);
+            this.start_button.TabIndex = 43;
+            this.start_button.Text = "Старт";
+            this.start_button.UseVisualStyleBackColor = false;
+            this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
             // label11
             // 
@@ -121,7 +115,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(73, 319);
+            this.label12.Location = new System.Drawing.Point(84, 319);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 20);
             this.label12.TabIndex = 39;
@@ -147,6 +141,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Равномерное",
@@ -165,20 +160,6 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Распределение";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(118, 198);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(27, 27);
-            this.textBox5.TabIndex = 34;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(34, 198);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(27, 27);
-            this.textBox4.TabIndex = 33;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -191,7 +172,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(73, 198);
+            this.label7.Location = new System.Drawing.Point(84, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(26, 20);
             this.label7.TabIndex = 31;
@@ -252,78 +233,82 @@
             this.label1.Text = "Параметры моделирования";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
+            // stop_button
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(134, 369);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 34);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Стоп";
-            this.button2.UseVisualStyleBackColor = false;
+            this.stop_button.BackColor = System.Drawing.Color.Red;
+            this.stop_button.Location = new System.Drawing.Point(308, 21);
+            this.stop_button.Name = "stop_button";
+            this.stop_button.Size = new System.Drawing.Size(116, 34);
+            this.stop_button.TabIndex = 44;
+            this.stop_button.Text = "Стоп";
+            this.stop_button.UseVisualStyleBackColor = false;
+            this.stop_button.Click += new System.EventHandler(this.stop_button_Click);
             // 
-            // numericUpDown1
+            // clerks_count
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(173, 37);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.clerks_count.Enabled = false;
+            this.clerks_count.Location = new System.Drawing.Point(173, 37);
+            this.clerks_count.Maximum = new decimal(new int[] {
             7,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.clerks_count.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(59, 27);
-            this.numericUpDown1.TabIndex = 45;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.clerks_count.Name = "clerks_count";
+            this.clerks_count.Size = new System.Drawing.Size(59, 27);
+            this.clerks_count.TabIndex = 45;
+            this.clerks_count.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.clerks_count.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // numericUpDown2
+            // queue_length
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(173, 70);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.queue_length.Enabled = false;
+            this.queue_length.Location = new System.Drawing.Point(173, 70);
+            this.queue_length.Maximum = new decimal(new int[] {
             25,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.queue_length.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(59, 27);
-            this.numericUpDown2.TabIndex = 46;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.queue_length.Name = "queue_length";
+            this.queue_length.Size = new System.Drawing.Size(59, 27);
+            this.queue_length.TabIndex = 46;
+            this.queue_length.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
             // 
-            // numericUpDown3
+            // step_size
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(173, 113);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.step_size.Enabled = false;
+            this.step_size.Location = new System.Drawing.Point(173, 113);
+            this.step_size.Maximum = new decimal(new int[] {
             60,
             0,
             0,
             0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.step_size.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(59, 27);
-            this.numericUpDown3.TabIndex = 47;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.step_size.Name = "step_size";
+            this.step_size.Size = new System.Drawing.Size(59, 27);
+            this.step_size.TabIndex = 47;
+            this.step_size.Value = new decimal(new int[] {
             10,
             0,
             0,
@@ -332,24 +317,26 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Black;
-            this.groupBox1.Controls.Add(this.label32);
-            this.groupBox1.Controls.Add(this.label31);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lostClientsCounter);
+            this.groupBox1.Controls.Add(this.servedClientsCounter);
+            this.groupBox1.Controls.Add(this.timeCounter);
+            this.groupBox1.Controls.Add(this.dayCounter);
+            this.groupBox1.Controls.Add(this.profitCounter);
+            this.groupBox1.Controls.Add(this.clientsCounter);
+            this.groupBox1.Controls.Add(this.requestnum7);
+            this.groupBox1.Controls.Add(this.requestnum6);
+            this.groupBox1.Controls.Add(this.requestnum5);
+            this.groupBox1.Controls.Add(this.requestnum4);
+            this.groupBox1.Controls.Add(this.requestnum3);
+            this.groupBox1.Controls.Add(this.requestnum2);
+            this.groupBox1.Controls.Add(this.requestnum1);
+            this.groupBox1.Controls.Add(this.window7);
+            this.groupBox1.Controls.Add(this.window6);
+            this.groupBox1.Controls.Add(this.window5);
+            this.groupBox1.Controls.Add(this.window4);
+            this.groupBox1.Controls.Add(this.window3);
+            this.groupBox1.Controls.Add(this.window2);
+            this.groupBox1.Controls.Add(this.window1);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(283, 26);
             this.groupBox1.Name = "groupBox1";
@@ -357,229 +344,262 @@
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
+            // lostClientsCounter
+            // 
+            this.lostClientsCounter.AutoSize = true;
+            this.lostClientsCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lostClientsCounter.Location = new System.Drawing.Point(15, 203);
+            this.lostClientsCounter.Name = "lostClientsCounter";
+            this.lostClientsCounter.Size = new System.Drawing.Size(153, 20);
+            this.lostClientsCounter.TabIndex = 20;
+            this.lostClientsCounter.Text = "Клиентов потеряно: ";
+            // 
+            // servedClientsCounter
+            // 
+            this.servedClientsCounter.AutoSize = true;
+            this.servedClientsCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.servedClientsCounter.Location = new System.Drawing.Point(15, 174);
+            this.servedClientsCounter.Name = "servedClientsCounter";
+            this.servedClientsCounter.Size = new System.Drawing.Size(163, 20);
+            this.servedClientsCounter.TabIndex = 19;
+            this.servedClientsCounter.Text = "Клиентов обслужано: ";
+            // 
+            // timeCounter
+            // 
+            this.timeCounter.AutoSize = true;
+            this.timeCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.timeCounter.Location = new System.Drawing.Point(287, 214);
+            this.timeCounter.Name = "timeCounter";
+            this.timeCounter.Size = new System.Drawing.Size(61, 20);
+            this.timeCounter.TabIndex = 18;
+            this.timeCounter.Text = "Время: ";
+            // 
+            // dayCounter
+            // 
+            this.dayCounter.AutoSize = true;
+            this.dayCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.dayCounter.Location = new System.Drawing.Point(287, 163);
+            this.dayCounter.Name = "dayCounter";
+            this.dayCounter.Size = new System.Drawing.Size(105, 20);
+            this.dayCounter.TabIndex = 17;
+            this.dayCounter.Text = "День недели: ";
+            // 
+            // profitCounter
+            // 
+            this.profitCounter.AutoSize = true;
+            this.profitCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.profitCounter.Location = new System.Drawing.Point(15, 232);
+            this.profitCounter.Name = "profitCounter";
+            this.profitCounter.Size = new System.Drawing.Size(81, 20);
+            this.profitCounter.TabIndex = 16;
+            this.profitCounter.Text = "Прибыль: ";
+            // 
+            // clientsCounter
+            // 
+            this.clientsCounter.AutoSize = true;
+            this.clientsCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.clientsCounter.Location = new System.Drawing.Point(15, 145);
+            this.clientsCounter.Name = "clientsCounter";
+            this.clientsCounter.Size = new System.Drawing.Size(157, 20);
+            this.clientsCounter.TabIndex = 15;
+            this.clientsCounter.Text = "Клиентов в очереди: ";
+            // 
+            // requestnum7
+            // 
+            this.requestnum7.AutoSize = true;
+            this.requestnum7.BackColor = System.Drawing.Color.Black;
+            this.requestnum7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum7.Location = new System.Drawing.Point(435, 85);
+            this.requestnum7.Name = "requestnum7";
+            this.requestnum7.Size = new System.Drawing.Size(43, 22);
+            this.requestnum7.TabIndex = 14;
+            this.requestnum7.Text = "0000";
+            this.requestnum7.Visible = false;
+            // 
+            // requestnum6
+            // 
+            this.requestnum6.AutoSize = true;
+            this.requestnum6.BackColor = System.Drawing.Color.Black;
+            this.requestnum6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum6.Location = new System.Drawing.Point(365, 85);
+            this.requestnum6.Name = "requestnum6";
+            this.requestnum6.Size = new System.Drawing.Size(43, 22);
+            this.requestnum6.TabIndex = 13;
+            this.requestnum6.Text = "0000";
+            this.requestnum6.Visible = false;
+            // 
+            // requestnum5
+            // 
+            this.requestnum5.AutoSize = true;
+            this.requestnum5.BackColor = System.Drawing.Color.Black;
+            this.requestnum5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum5.Location = new System.Drawing.Point(295, 85);
+            this.requestnum5.Name = "requestnum5";
+            this.requestnum5.Size = new System.Drawing.Size(43, 22);
+            this.requestnum5.TabIndex = 12;
+            this.requestnum5.Text = "0000";
+            this.requestnum5.Visible = false;
+            // 
+            // requestnum4
+            // 
+            this.requestnum4.AutoSize = true;
+            this.requestnum4.BackColor = System.Drawing.Color.Black;
+            this.requestnum4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum4.Location = new System.Drawing.Point(225, 85);
+            this.requestnum4.Name = "requestnum4";
+            this.requestnum4.Size = new System.Drawing.Size(43, 22);
+            this.requestnum4.TabIndex = 11;
+            this.requestnum4.Text = "0000";
+            this.requestnum4.Visible = false;
+            // 
+            // requestnum3
+            // 
+            this.requestnum3.AutoSize = true;
+            this.requestnum3.BackColor = System.Drawing.Color.Black;
+            this.requestnum3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum3.Location = new System.Drawing.Point(155, 85);
+            this.requestnum3.Name = "requestnum3";
+            this.requestnum3.Size = new System.Drawing.Size(43, 22);
+            this.requestnum3.TabIndex = 10;
+            this.requestnum3.Text = "0000";
+            this.requestnum3.Visible = false;
+            // 
+            // requestnum2
+            // 
+            this.requestnum2.AutoSize = true;
+            this.requestnum2.BackColor = System.Drawing.Color.Black;
+            this.requestnum2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum2.Location = new System.Drawing.Point(85, 85);
+            this.requestnum2.Name = "requestnum2";
+            this.requestnum2.Size = new System.Drawing.Size(43, 22);
+            this.requestnum2.TabIndex = 9;
+            this.requestnum2.Text = "0000";
+            this.requestnum2.Visible = false;
+            // 
+            // requestnum1
+            // 
+            this.requestnum1.AutoSize = true;
+            this.requestnum1.BackColor = System.Drawing.Color.Black;
+            this.requestnum1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.requestnum1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.requestnum1.Location = new System.Drawing.Point(15, 85);
+            this.requestnum1.Name = "requestnum1";
+            this.requestnum1.Size = new System.Drawing.Size(43, 22);
+            this.requestnum1.TabIndex = 8;
+            this.requestnum1.Text = "0000";
+            this.requestnum1.Visible = false;
+            this.requestnum1.Click += new System.EventHandler(this.label22_Click);
+            // 
+            // window7
+            // 
+            this.window7.AutoSize = true;
+            this.window7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window7.Location = new System.Drawing.Point(435, 50);
+            this.window7.Name = "window7";
+            this.window7.Size = new System.Drawing.Size(59, 22);
+            this.window7.TabIndex = 7;
+            this.window7.Text = "Окно 7";
+            this.window7.Visible = false;
+            // 
+            // window6
+            // 
+            this.window6.AutoSize = true;
+            this.window6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window6.Location = new System.Drawing.Point(365, 50);
+            this.window6.Name = "window6";
+            this.window6.Size = new System.Drawing.Size(59, 22);
+            this.window6.TabIndex = 6;
+            this.window6.Text = "Окно 6";
+            this.window6.Visible = false;
+            // 
+            // window5
+            // 
+            this.window5.AutoSize = true;
+            this.window5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window5.Location = new System.Drawing.Point(295, 50);
+            this.window5.Name = "window5";
+            this.window5.Size = new System.Drawing.Size(59, 22);
+            this.window5.TabIndex = 5;
+            this.window5.Text = "Окно 5";
+            this.window5.Visible = false;
+            // 
+            // window4
+            // 
+            this.window4.AutoSize = true;
+            this.window4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window4.Location = new System.Drawing.Point(225, 50);
+            this.window4.Name = "window4";
+            this.window4.Size = new System.Drawing.Size(59, 22);
+            this.window4.TabIndex = 4;
+            this.window4.Text = "Окно 4";
+            this.window4.Visible = false;
+            // 
+            // window3
+            // 
+            this.window3.AutoSize = true;
+            this.window3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window3.Location = new System.Drawing.Point(155, 50);
+            this.window3.Name = "window3";
+            this.window3.Size = new System.Drawing.Size(59, 22);
+            this.window3.TabIndex = 3;
+            this.window3.Text = "Окно 3";
+            this.window3.Visible = false;
+            // 
+            // window2
+            // 
+            this.window2.AutoSize = true;
+            this.window2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window2.Location = new System.Drawing.Point(85, 50);
+            this.window2.Name = "window2";
+            this.window2.Size = new System.Drawing.Size(59, 22);
+            this.window2.TabIndex = 2;
+            this.window2.Text = "Окно 2";
+            this.window2.Visible = false;
+            // 
+            // window1
+            // 
+            this.window1.AutoSize = true;
+            this.window1.BackColor = System.Drawing.Color.Black;
+            this.window1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.window1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.window1.Location = new System.Drawing.Point(15, 50);
+            this.window1.Name = "window1";
+            this.window1.Size = new System.Drawing.Size(59, 22);
+            this.window1.TabIndex = 1;
+            this.window1.Text = "Окно 1";
+            this.window1.Visible = false;
+            this.window1.Click += new System.EventHandler(this.label15_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(170, 23);
+            this.label14.Location = new System.Drawing.Point(166, 12);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(182, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "Информационное табло";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(15, 66);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(59, 22);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Окно 1";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(83, 66);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 20);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Окно 2";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label17.Location = new System.Drawing.Point(151, 66);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(57, 20);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Окно 3";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label18.Location = new System.Drawing.Point(219, 66);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 20);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Окно 4";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(287, 66);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 20);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Окно 5";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label20.Location = new System.Drawing.Point(355, 66);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(57, 20);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "Окно 6";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(423, 66);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 20);
-            this.label21.TabIndex = 7;
-            this.label21.Text = "Окно 7";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Black;
-            this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label22.Location = new System.Drawing.Point(25, 97);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(35, 22);
-            this.label22.TabIndex = 8;
-            this.label22.Text = "125";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Black;
-            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label23.Location = new System.Drawing.Point(94, 97);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(35, 22);
-            this.label23.TabIndex = 9;
-            this.label23.Text = "125";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Black;
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label24.Location = new System.Drawing.Point(161, 97);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(35, 22);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "125";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.Black;
-            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label25.Location = new System.Drawing.Point(228, 97);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(35, 22);
-            this.label25.TabIndex = 11;
-            this.label25.Text = "125";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Black;
-            this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label26.Location = new System.Drawing.Point(298, 97);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(35, 22);
-            this.label26.TabIndex = 12;
-            this.label26.Text = "125";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.Black;
-            this.label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label27.Location = new System.Drawing.Point(365, 97);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(35, 22);
-            this.label27.TabIndex = 13;
-            this.label27.Text = "125";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.Black;
-            this.label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label28.Location = new System.Drawing.Point(432, 97);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(35, 22);
-            this.label28.TabIndex = 14;
-            this.label28.Text = "125";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label29.Location = new System.Drawing.Point(15, 163);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(157, 20);
-            this.label29.TabIndex = 15;
-            this.label29.Text = "Клиентов в очереди: ";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label30.Location = new System.Drawing.Point(15, 214);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(81, 20);
-            this.label30.TabIndex = 16;
-            this.label30.Text = "Прибыль: ";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label31.Location = new System.Drawing.Point(287, 163);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(105, 20);
-            this.label31.TabIndex = 17;
-            this.label31.Text = "День недели: ";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label32.Location = new System.Drawing.Point(287, 214);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(61, 20);
-            this.label32.TabIndex = 18;
-            this.label32.Text = "Время: ";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(46, 46);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 29);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "Шаг назад";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.toTheEnd_button);
+            this.groupBox2.Controls.Add(this.exit_button);
+            this.groupBox2.Controls.Add(this.tick_button);
+            this.groupBox2.Controls.Add(this.start_button);
+            this.groupBox2.Controls.Add(this.stop_button);
             this.groupBox2.Location = new System.Drawing.Point(283, 304);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(518, 132);
@@ -587,51 +607,53 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление";
             // 
-            // button4
+            // toTheEnd_button
             // 
-            this.button4.Location = new System.Drawing.Point(203, 46);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 29);
-            this.button4.TabIndex = 50;
-            this.button4.Text = "Шаг вперёд";
-            this.button4.UseVisualStyleBackColor = true;
+            this.toTheEnd_button.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toTheEnd_button.Location = new System.Drawing.Point(28, 80);
+            this.toTheEnd_button.Name = "toTheEnd_button";
+            this.toTheEnd_button.Size = new System.Drawing.Size(204, 29);
+            this.toTheEnd_button.TabIndex = 53;
+            this.toTheEnd_button.Text = "К концу моделирования";
+            this.toTheEnd_button.UseVisualStyleBackColor = false;
+            this.toTheEnd_button.Click += new System.EventHandler(this.toTheEnd_button_Click);
             // 
-            // button5
+            // exit_button
             // 
-            this.button5.Location = new System.Drawing.Point(108, 87);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(116, 29);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "К концу";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.exit_button.Location = new System.Drawing.Point(406, 103);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(116, 29);
+            this.exit_button.TabIndex = 52;
+            this.exit_button.Text = "Выход";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
-            // button6
+            // tick_button
             // 
-            this.button6.Location = new System.Drawing.Point(406, 103);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(116, 29);
-            this.button6.TabIndex = 52;
-            this.button6.Text = "Выход";
-            this.button6.UseVisualStyleBackColor = true;
+            this.tick_button.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tick_button.Location = new System.Drawing.Point(28, 26);
+            this.tick_button.Name = "tick_button";
+            this.tick_button.Size = new System.Drawing.Size(116, 29);
+            this.tick_button.TabIndex = 50;
+            this.tick_button.Text = "Шаг вперёд";
+            this.tick_button.UseVisualStyleBackColor = false;
+            this.tick_button.Click += new System.EventHandler(this.tick_button_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.numericUpDown3);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
-            this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.time_serve2);
+            this.groupBox3.Controls.Add(this.time_serve1);
+            this.groupBox3.Controls.Add(this.time_between2);
+            this.groupBox3.Controls.Add(this.time_between1);
+            this.groupBox3.Controls.Add(this.step_size);
+            this.groupBox3.Controls.Add(this.queue_length);
+            this.groupBox3.Controls.Add(this.clerks_count);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
@@ -647,6 +669,93 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
+            // time_serve2
+            // 
+            this.time_serve2.Enabled = false;
+            this.time_serve2.Location = new System.Drawing.Point(119, 317);
+            this.time_serve2.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.time_serve2.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.time_serve2.Name = "time_serve2";
+            this.time_serve2.Size = new System.Drawing.Size(44, 27);
+            this.time_serve2.TabIndex = 75;
+            this.time_serve2.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // time_serve1
+            // 
+            this.time_serve1.Enabled = false;
+            this.time_serve1.Location = new System.Drawing.Point(34, 317);
+            this.time_serve1.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.time_serve1.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.time_serve1.Name = "time_serve1";
+            this.time_serve1.Size = new System.Drawing.Size(44, 27);
+            this.time_serve1.TabIndex = 74;
+            this.time_serve1.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            // 
+            // time_between2
+            // 
+            this.time_between2.Enabled = false;
+            this.time_between2.Location = new System.Drawing.Point(119, 191);
+            this.time_between2.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.time_between2.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.time_between2.Name = "time_between2";
+            this.time_between2.Size = new System.Drawing.Size(46, 27);
+            this.time_between2.TabIndex = 73;
+            this.time_between2.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // time_between1
+            // 
+            this.time_between1.Enabled = false;
+            this.time_between1.Location = new System.Drawing.Point(34, 191);
+            this.time_between1.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.time_between1.Name = "time_between1";
+            this.time_between1.Size = new System.Drawing.Size(44, 27);
+            this.time_between1.TabIndex = 72;
+            this.time_between1.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            // 
             // Modelling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -657,31 +766,31 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Modelling";
             this.Text = "Моделирование";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clerks_count)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queue_length)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.step_size)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.time_serve2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_serve1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_between2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.time_between1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox6;
-        private TextBox textBox7;
+        private Button start_button;
         private Label label11;
         private Label label12;
         private Label label13;
         private Label label10;
         private ComboBox comboBox1;
         private Label label9;
-        private TextBox textBox5;
-        private TextBox textBox4;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -690,35 +799,41 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button2;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
+        private Button stop_button;
+        private NumericUpDown clerks_count;
+        private NumericUpDown queue_length;
+        private NumericUpDown step_size;
         private GroupBox groupBox1;
         private Label label14;
-        private Label label21;
-        private Label label20;
-        private Label label19;
-        private Label label18;
-        private Label label17;
-        private Label label16;
-        private Label label15;
-        private Label label22;
-        private Label label28;
-        private Label label27;
-        private Label label26;
-        private Label label25;
-        private Label label24;
-        private Label label23;
-        private Label label29;
-        private Label label32;
-        private Label label31;
-        private Label label30;
-        private Button button3;
+        private Label window7;
+        private Label window6;
+        private Label window5;
+        private Label window4;
+        private Label window3;
+        private Label window2;
+        private Label window1;
+        private Label requestnum1;
+        private Label requestnum7;
+        private Label requestnum6;
+        private Label requestnum5;
+        private Label requestnum4;
+        private Label requestnum3;
+        private Label requestnum2;
+        private Label clientsCounter;
+        private Label timeCounter;
+        private Label dayCounter;
+        private Label profitCounter;
         private GroupBox groupBox2;
-        private Button button5;
-        private Button button4;
-        private Button button6;
+        private Button tick_button;
+        private Button exit_button;
         private GroupBox groupBox3;
+        private NumericUpDown time_between1;
+        private NumericUpDown time_between2;
+        private NumericUpDown time_serve1;
+        private NumericUpDown time_serve2;
+        private Button toTheEnd_button;
+        private Label lostClientsCounter;
+        private Label servedClientsCounter;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Bank_OOP.Classes
 {
@@ -14,40 +15,140 @@ namespace Bank_OOP.Classes
         // Макс. длина очереди
         int K;
 
-        // Список клерков
-        public List<Clerk> clerks;
-
         // Очередь заявок
-        public List<Request> requests = new List<Request>();
+        public Queue<Request> requests = new Queue<Request>();
 
+        // Список брабатываемых заявок
+        public Request?[] handlingRequests;
+
+        // Максимальная длина очереди
+        public int maxQueueSize = 0;
+
+        // Общая прибыль
+        public int profit = 0;
+
+        // Суммарное время ожидания для заявок
+        public int allRequestTime = 0;
 
         // Методы
         // Конструктор
         public Bank(int n, int k)
         {
             N = n;
-            for (int i=0; i<n; i++)
-            {
-                clerks.Add(new Clerk(i));
-            }
+            K = k;
+            handlingRequests = new Request?[N];
         }
 
-        // Передать заявку клерку
+        // Добавить заявку в очередь
         public bool HandleRequest(Request request)
         {
             int newQueueSize = requests.Count() + 1;
             if (newQueueSize < K)
             {
-                requests.Add(request);
+                if (newQueueSize > maxQueueSize)
+                    maxQueueSize = newQueueSize;
                 return true;
             }
             else
                 return false;
         }
 
-        public void DeleteTheEnd()
+        public int UpdateHandledList(int timeNewRequest)
         {
+            int servedRequests = 0;
+            foreach (var request in handlingRequests)
+            {
+                if (request != null)
+                {
+                    request.residue = request.servingTime - timeNewRequest;
+                    request.servingTime = Math.Max(request.servingTime - timeNewRequest, 0);
+                }
+            }
+            for (int i = 0; i < N; i++)
+            {
+                if (handlingRequests[i] != null && handlingRequests[i].servingTime == 0)
+                {
+                    profit += handlingRequests[i].profit;
+                    servedRequests++;
+                    if (requests.Count() == 0)
+                        handlingRequests[i] = null;
+                    while (requests.Count() > 0)
+                    {
+                        var new_req = requests.Dequeue();
+                        new_req.servingTime += handlingRequests[i].residue;
+                        // Добавление времени ожидания одной заявки
+                        allRequestTime += new_req.timeWaiting + Math.Abs(handlingRequests[i].residue);
 
+                        handlingRequests[i] = new_req;
+                        if (new_req.servingTime > 0)
+                            break;
+                        else
+                        {
+                            handlingRequests[i].residue = handlingRequests[i].servingTime;
+                            profit += handlingRequests[i].profit;
+                            servedRequests++;
+                        }
+                    }
+                }
+                else if (handlingRequests[i] == null)
+                {
+                    while (requests.Count() > 0)
+                    {
+                        var new_req = requests.Dequeue();
+                        if (handlingRequests[i] != null)
+                        {
+                            new_req.servingTime += handlingRequests[i].residue;
+                            // Добавление времени ожидания одной заявки
+                            allRequestTime += new_req.timeWaiting + Math.Abs(handlingRequests[i].residue);
+                        }
+
+                        handlingRequests[i] = new_req;
+                        if (new_req.servingTime > 0)
+                            break;
+                        else
+                        {
+                            handlingRequests[i].residue = handlingRequests[i].servingTime;
+                            profit += handlingRequests[i].profit;
+                            servedRequests++;
+                        }
+                    }
+                }
+            }
+            return servedRequests;
+
+        }
+
+        public void UpdateTimeWaiting(int timeToAdd)
+        {
+            foreach (var request in requests)
+            {
+                request.timeWaiting += timeToAdd;
+            }
+        }
+
+        public double GetClerksBusyness()
+        {
+            int busyClerks = 0;
+            for (int i=0; i < N; i++)
+            {
+                if (handlingRequests[i] != null)
+                    busyClerks++;
+            }
+            return busyClerks/N;
+        }
+
+        public int[] GetHandlingRequests()
+        {
+            int[] ids = new int[N];
+            for (int i=0; i < N; i++)
+            {
+                if (handlingRequests[i] != null)
+                    ids[i] = handlingRequests[i].id;
+                else
+                    ids[i] = 0;
+            }
+
+            return ids;
         }
     }
 }

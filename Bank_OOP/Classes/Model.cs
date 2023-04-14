@@ -7,7 +7,15 @@ namespace Bank_OOP.Classes
 {
     public class Model
     {
-        const int daysInWeek = 7;
+        const int daysInWeek = 6;
+
+        const int weeksInMonth = 4;
+
+        const int hoursPerDay = 8;
+
+        const int hoursPerWeekend = 6;
+
+        const int clerksPayment = 2000;
 
         // Прибыль от одной заявки
         int[] requestProfit = new int[2] { 50, 3000 };
@@ -17,6 +25,9 @@ namespace Bank_OOP.Classes
 
         // Текущее время, с типом определюсь в будущем
         int[] currentTime = new int[] { 1, 0, 0};
+        
+        // Номер текущей недели
+        int currentWeek = 0;
 
         // Параметры моделирования
         // Время между приходом клиентов (промежуток в мин.)
@@ -37,53 +48,57 @@ namespace Bank_OOP.Classes
         // Банк
         Bank bank;
 
+        // Общее количество поступивших заявок
+        int requests_count = 0;
+
         // Статистика
-        // Кол-во обслуженных клиентов
-        int servedClientsCount;
+        // Кол-во обслуженных клиентов 
+        int servedRequestsCount = 0;
 
-        // Кол-во потерянных клиентов
-        int lostClientsCount;
+        // Кол-во потерянных клиентов 
+        int lostRequestsCount = 0;
 
-        // Среднее время ожилания (в мин.)
-        double avgWaitingTime;
+        // Суммарная длина очереди для статистики
+        int sumQueueSize = 0; 
 
-        // Средняя занятость клерков
-        double avgClerkBusyness;
-
-        // Максимальная длина очереди за время работы
-        int maxQueueLength;
-
-        // Минимальная длина очереди за время работы
-        int minQueueLength;
-
-        // Средняя длина очереди за время работы
-        int avgQueueLength;
+        // Число сделанных шагов
+        public int stepsCount = 0;
 
         // Прибыль
-        int profit;
+        int realProfit = 0;
+
+        // Номер заявки по дням
+        int requestId = 0;
 
         bool requestHaveSafeTime = false;
 
+        // Время до появления в системе новой заявки
         int timeNewRequest;
 
-        List<Request> requestsList = new List<Request>();
+        // Общее количество шагов
+        public int numberOfSteps;
         
+        double sumAvgBusyness = 0;
+        
+        // Список потерянных заявок
         List<Request> lostRequests = new List<Request>();
 
         // Методы
         // Конструктор
-        public Model(int n, int k, int step, string distribution, int[] timeBetweenClients, int[] timeToHandleCLients) 
+        public Model(int n, int k, int step, string distribution, int[] timeBetweenClients, int[] timeToHandleClients) 
         {
             clerksCount = n;
             queueLength = k;
             this.step = step;
-            if (distribution == DistributionType.Normal.ToString())
+            if (distribution == "Нормальное")
                 this.distribution = DistributionType.Normal;
             else
                 this.distribution = DistributionType.Uniform;
             this.timeBetweenClients = timeBetweenClients;
-            this.timeToHandleClients = timeToHandleCLients;
+            this.timeToHandleClients = timeToHandleClients;
             bank = new Bank(n, k);
+            int minutesLeft = weeksInMonth * 5 * hoursPerDay * 60 + weeksInMonth * hoursPerWeekend * 60;
+            numberOfSteps = minutesLeft / step;
         }
 
         // Добавление клиента в очередь
@@ -103,8 +118,9 @@ namespace Bank_OOP.Classes
                 timeToServe = (int)(r.NextDouble() * (timeToHandleClients[1] - timeToHandleClients[0]) + timeToHandleClients[0]);
                 profit = (int)(r.NextDouble() * (requestProfit[1] - requestProfit[0]) + requestProfit[0]);
             }
-
-            return new Request(timeToServe, profit);
+            requests_count++;
+            requestId++;
+            return new Request(requestId, timeToServe, profit);
         }
 
         
@@ -117,6 +133,7 @@ namespace Bank_OOP.Classes
             var r = new Random();
             while (true)
             {
+                // Вычисление времени до появления новой заявки
                 if (!requestHaveSafeTime)
                 {
                     timeNewRequest = timeInterval[0] + (int)(r.NextDouble() * (timeInterval[1] - timeInterval[0]));
@@ -127,103 +144,92 @@ namespace Bank_OOP.Classes
                 {
                     break;
                 }
-                UpdateTimeForRequest(timeNewRequest);
-                bank.DeleteTheEnd();
 
+                servedRequestsCount += bank.UpdateHandledList(timeNewRequest);
+
+                bank.UpdateTimeWaiting(timeNewRequest);
+
+                // Создание новой заявки
                 Request newRequest = AddRequest();
                 if (bank.HandleRequest(newRequest))
                 {
-                    requestsList.Add(newRequest);
+                    bank.requests.Enqueue(newRequest);
                 }
                 else
                 {
-                    newRequest.timeUntilEnd = 0;
+                    newRequest.servingTime = 0;
                     lostRequests.Add(newRequest);
+                    lostRequestsCount++;
                 }
-            }
 
-            UpdateTimeForRequest(timeNewRequest - (curTimeInStep - step));
-            bank.DeleteTheEnd();
+                // Перемещение заявок из очереди в список обрабатывающихся
+                servedRequestsCount += bank.UpdateHandledList(0);
+            }
+            servedRequestsCount += bank.UpdateHandledList(timeNewRequest - (curTimeInStep - step));
+
+            bank.UpdateTimeWaiting(timeNewRequest - (curTimeInStep - step));
             requestHaveSafeTime = true;
             timeNewRequest = curTimeInStep - step;
+            sumQueueSize += bank.requests.Count();
+            stepsCount++;
             UpdateGlobalTime(step);
-
+            sumAvgBusyness += bank.GetClerksBusyness();
+            if (currentTime[1] == 0 && currentTime[2] == 0)
+            {
+                requestId = 0;
+            }
         }
 
         // Перейти к концу моделирования
         public void ToTheEnd()
         {
-            var r = new Random();
-            while (true)
+            for (int i=stepsCount; i < numberOfSteps; i++)
             {
-                int[] timeInterval = GenerateTimeIntervalForNewRequest();
-                if (!requestHaveSafeTime)
-                {
-                    timeNewRequest = timeInterval[0] + (int)(r.NextDouble() * (timeInterval[1] - timeInterval[0]));
-                }
-                requestHaveSafeTime = false;
-                UpdateGlobalTime(timeNewRequest);
-                if (currentTime[0] > daysInWeek)
-                {
-                    break;
-                }
-
-                UpdateTimeForRequest(timeNewRequest);
-                bank.DeleteTheEnd();
-
-                Request newRequest = AddRequest();
-                if (bank.HandleRequest(newRequest))
-                {
-                    requestsList.Add(newRequest);
-                }
-                else
-                {
-                    newRequest.timeUntilEnd = 0;
-                    lostRequests.Add(newRequest);
-                }
-            }
-            foreach (var request in requestsList)
-            {
-                request.timeUntilEnd = 0;
+                Tick();
             }
         }
 
-        private int IsWeekend()
+        private bool IsWeekend()
         {
-            if (currentTime[0] == 6 || currentTime[0] == 7)
+            if (currentTime[0] == 6)
             {
-                return 1;
+                return true;
             }
-            return 0;
+            return false;
         }
 
-        private int IsTheTimeBetween16And22()
+        private bool IsTheTimeBetween6And8()
         {
-            if (currentTime[1] >= 16 && currentTime[1] < 22)
+            if (currentTime[1] >= 6)
             {
-                return 1;
+                return true;
             }
-            return 0;
+            return false;
         }
 
         private int[] GenerateTimeIntervalForNewRequest()
         {
-            int forWeekend = 5;
-            int forTheTimeBetween16And22 = 3;
+            int forWeekend = 0;
+            int forTheTimeBetween6And8 = 0;
+            int longQueuePenalty = 0;
+            if (IsWeekend())
+            {
+                forWeekend = 5;
+            }
+            if (IsTheTimeBetween6And8())
+            {
+                forTheTimeBetween6And8 = 5;
+            }
+            if (bank.requests.Count() == queueLength)
+            {
+                longQueuePenalty -= 5;
+            }
             double avg = (timeBetweenClients[0] + timeBetweenClients[1]) / 2.0;
             double avg_in_minutes = 1.0 / avg;
-            int fluxDensity = 100 - forWeekend * IsWeekend() + forTheTimeBetween16And22 * IsTheTimeBetween16And22();
+            int fluxDensity = 100 - forWeekend + forTheTimeBetween6And8;
             avg_in_minutes = avg_in_minutes * fluxDensity / 100.0;
             double new_avg = 1.0 / avg_in_minutes;
             return new int[] { Math.Abs((int)(new_avg - avg)), (int)(new_avg + avg) };
-        }
-
-        private void UpdateTimeForRequest(int timeNewRequest)
-        {
-            for (int i = 0; i < requestsList.Count(); ++i)
-            {
-                requestsList[i].timeUntilEnd = Math.Max(requestsList[i].timeUntilEnd - timeNewRequest, 0);
-            }
         }
 
         private void UpdateGlobalTime(int step)
@@ -231,25 +237,137 @@ namespace Bank_OOP.Classes
             if ((currentTime[2] += step) >= 60)
             {
                 currentTime[2] -= 60;
-                if ((currentTime[1] += 1) >= 24)
+                if ((currentTime[1] += 1) >= hoursPerDay)
                 {
-                    currentTime[1] -= 24;
+                    currentTime[1] -= hoursPerDay;
                     currentTime[0] += 1;
+                }
+                else if (currentTime[0] == 6 && (currentTime[1] += 1) >= hoursPerWeekend)
+                {
+                    currentTime[1] -= hoursPerWeekend;
+                    currentTime[0] = 1;
                 }
             }
         }
 
         // Get методы для статистики и информ. полей
-        public int[] GetCurrentTime()
+        public string GetCurrentTime()
         {
-            return currentTime;
+            int normal_hours = 10 + currentTime[1];
+            string normal_time;
+            if (currentTime[2] == 0)
+                normal_time = $"{normal_hours}:00";
+            else
+                normal_time = $"{normal_hours}:{currentTime[2]}";
+            return normal_time;
+        }
+
+        public int GetClerksCount()
+        {
+            return clerksCount;
+        }
+
+        public int GetQueueLength()
+        {
+            return queueLength;
+        }
+
+        public int GetStepSize()
+        {
+            return step;
+        }
+
+        public string GetDistributionType()
+        {
+            if (distribution == DistributionType.Normal)
+                return "Нормальное";
+            else
+                return "Равномерное";
+        }
+
+        public int[] GetTimeBetweenClients()
+        {
+            return timeBetweenClients;
+        }
+
+        public int[] GetTimeToHandleClients()
+        {
+            return timeToHandleClients;
+        }
+
+        public double GetAvgQueueSize()
+        {
+            return sumQueueSize / stepsCount;
+        }
+
+        public double GetAvgWaitingTime()
+        {
+            if (servedRequestsCount != 0)
+                return bank.allRequestTime / servedRequestsCount;
+            else
+                return 0;
+        }
+
+        public int GetRealProfit()
+        {
+            realProfit = bank.profit - clerksPayment * clerksCount * daysInWeek;
+            return realProfit;
+        }
+
+        public int GetCurrentProfit()
+        {
+            return bank.profit;
+        }
+
+        public double GetAvgClerkBusyness()
+        {
+            return sumAvgBusyness/stepsCount;
+        }
+
+        public int[] GetHandlingRequests()
+        {
+            return bank.GetHandlingRequests();
+        }
+
+        public int GetCurrentQueueSize()
+        {
+            return bank.requests.Count;
+        }
+
+        public string GetWeekDay()
+        {
+            switch (currentTime[0])
+            {
+                case 1: return "Понедельник";
+                case 2: return "Вторник";
+                case 3: return "Среда";
+                case 4: return "Четверг";
+                case 5: return "Пятница";
+                case 6: return "Суббота";
+            }
+            return "Воскресенье";
+        }
+
+        public int GetServedRequestsCount()
+        {
+            return servedRequestsCount;
+        }
+
+        public int GetLostRequestCount()
+        {
+            return lostRequestsCount;
+        }
+
+        public int GetMaxQueueSize()
+        {
+            return bank.maxQueueSize;
         }
 
     }
 
     public enum DistributionType
     {
-        Normal = "Нормальное",
-        Uniform = "Равномерное"
+        Normal = 0,
+        Uniform = 1
     }
 }

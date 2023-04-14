@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank_OOP.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,21 @@ namespace Bank_OOP
 {
     public partial class Statistics : Form
     {
+        private Model model;
+
+        public Statistics(Model model)
+        {
+            InitializeComponent();
+            this.model = model;
+            servedClientsCounter.Text = $"Количество обслуженных клиентов: {model.GetServedRequestsCount()}";
+            lostClientsCounter.Text = $"Количество потерянных клиентов: {model.GetLostRequestCount()}";
+            avgWaitingCounter.Text = $"Среднее время ожидания: {model.GetAvgWaitingTime()} мин.";
+            avgBusynessCounter.Text = $"Средняя занятость клерков: {model.GetAvgClerkBusyness()}";
+            maxQueueCounter.Text = $"Максимальная длина очереди: {model.GetMaxQueueSize()}";
+            avgQueueCounter.Text = $"Средняя длина очереди: {model.GetAvgQueueSize()}";
+            profitCounter.Text = $"Прибыль банка: {model.GetRealProfit()}";
+        }
+
         public Statistics()
         {
             InitializeComponent();
@@ -30,6 +46,23 @@ namespace Bank_OOP
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void startAgain_button_Click(object sender, EventArgs e)
+        {
+            Parameters parameters = new Parameters();
+            this.Visible = false;
+            parameters.Show();
+        }
+
+        private void saveResults_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

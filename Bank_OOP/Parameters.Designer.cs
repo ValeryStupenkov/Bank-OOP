@@ -184,6 +184,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(124, 28);
             this.comboBox1.TabIndex = 60;
+            this.comboBox1.Text = "Равномерное";
             // 
             // label9
             // 

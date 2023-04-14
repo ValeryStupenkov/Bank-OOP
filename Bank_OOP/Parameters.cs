@@ -13,11 +13,12 @@ namespace Bank_OOP
 {
     public partial class Parameters : Form
     {
-        public Model model;
+        private Model model;
 
         public Parameters()
         {
             InitializeComponent();
+
         }
 
         private void clerks_count_ValueChanged(object sender, EventArgs e)
@@ -44,6 +45,7 @@ namespace Bank_OOP
             string distribution = comboBox1.Text;
             model = new Model(n, k, step, distribution, time_between, time_serve);
             Modelling modelling = new Modelling(model);
+            this.Visible = false;
             modelling.Show();
         }
 

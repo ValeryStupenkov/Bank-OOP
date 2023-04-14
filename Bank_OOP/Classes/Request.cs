@@ -17,22 +17,19 @@ namespace Bank_OOP.Classes
         // Прибыль банка от заявки
         public int profit;
 
-        // Статус заявки
-        public RequestStatus status;
+        // Остаток
+        public int residue;
 
-        public int timeUntilEnd;
+        // Время ожидания в очереди
+        public int timeWaiting = 0;
 
         // Методы
-        public Request(int servingTime, int profit)
+        public Request(int id, int servingTime, int profit)
         {
+            this.id = id;
             this.servingTime = servingTime;
             this.profit = profit;
         }
-    }
-
-    public enum RequestStatus 
-    {
-
     }
 
 }
