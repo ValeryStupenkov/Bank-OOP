@@ -379,7 +379,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Parameters";
-            this.Text = "Form1";
+            this.Text = "Параметры";
             ((System.ComponentModel.ISupportInitialize)(this.step_size)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.queue_length)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clerks_count)).EndInit();

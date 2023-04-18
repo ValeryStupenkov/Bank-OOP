@@ -38,7 +38,6 @@
             this.servedClientsCounter = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.exit_button = new System.Windows.Forms.Button();
-            this.saveResults_button = new System.Windows.Forms.Button();
             this.startAgain_button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -128,7 +127,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.exit_button);
-            this.groupBox2.Controls.Add(this.saveResults_button);
             this.groupBox2.Controls.Add(this.startAgain_button);
             this.groupBox2.Location = new System.Drawing.Point(14, 300);
             this.groupBox2.Name = "groupBox2";
@@ -146,16 +144,6 @@
             this.exit_button.Text = "Выход";
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
-            // 
-            // saveResults_button
-            // 
-            this.saveResults_button.Location = new System.Drawing.Point(271, 66);
-            this.saveResults_button.Name = "saveResults_button";
-            this.saveResults_button.Size = new System.Drawing.Size(201, 29);
-            this.saveResults_button.TabIndex = 4;
-            this.saveResults_button.Text = "Сохранить результаты";
-            this.saveResults_button.UseVisualStyleBackColor = true;
-            this.saveResults_button.Click += new System.EventHandler(this.saveResults_button_Click);
             // 
             // startAgain_button
             // 
@@ -196,6 +184,5 @@
         private GroupBox groupBox2;
         private Button startAgain_button;
         private Button exit_button;
-        private Button saveResults_button;
     }
 }

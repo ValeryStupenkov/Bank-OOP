@@ -19,12 +19,14 @@ namespace Bank_OOP
         {
             InitializeComponent();
             this.model = model;
+            double avgWait = model.GetAvgWaitingTime();
+            double avgQueueSize = model.GetAvgQueueSize();
             servedClientsCounter.Text = $"Количество обслуженных клиентов: {model.GetServedRequestsCount()}";
             lostClientsCounter.Text = $"Количество потерянных клиентов: {model.GetLostRequestCount()}";
-            avgWaitingCounter.Text = $"Среднее время ожидания: {model.GetAvgWaitingTime()} мин.";
-            avgBusynessCounter.Text = $"Средняя занятость клерков: {model.GetAvgClerkBusyness()}";
+            avgWaitingCounter.Text = $"Среднее время ожидания: {Math.Round(avgWait, 2)} мин.";
+            avgBusynessCounter.Text = $"Средняя занятость клерков: {Math.Round(model.GetAvgClerkBusyness(), 2)}";
             maxQueueCounter.Text = $"Максимальная длина очереди: {model.GetMaxQueueSize()}";
-            avgQueueCounter.Text = $"Средняя длина очереди: {model.GetAvgQueueSize()}";
+            avgQueueCounter.Text = $"Средняя длина очереди: {Math.Round(avgQueueSize, 2)}";
             profitCounter.Text = $"Прибыль банка: {model.GetRealProfit()}";
         }
 

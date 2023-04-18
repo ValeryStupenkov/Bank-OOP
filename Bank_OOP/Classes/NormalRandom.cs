@@ -1,39 +1,28 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathNet.Numerics.Distributions;
 
 namespace Bank_OOP.Classes
 {
-    class NormalRandom : Random
+    class NormalRandom
     {
-        // сохранённое предыдущее значение
-        double prevSample = double.NaN;
-        protected override double Sample()
+        public NormalRandom() { }
+
+        public double NextDouble()
         {
-            // есть предыдущее значение? возвращаем его
-            if (!double.IsNaN(prevSample))
-            {
-                double result = prevSample;
-                prevSample = double.NaN;
-                return result;
-            }
-
-            // нет? вычисляем следующие два
-            // Marsaglia polar method из википедии
-            double u, v, s;
-            do
-            {
-                u = 2 * base.Sample() - 1;
-                v = 2 * base.Sample() - 1; // [-1, 1)
-                s = u * u + v * v;
-            }
-            while (u <= -1 || v <= -1 || s >= 1 || s == 0);
-            double r = Math.Sqrt(-2 * Math.Log(s) / s);
-
-            prevSample = r * v;
-            return r * u;
+            Random rand = new Random(); //reuse this if you are generating many
+            double u1 = 1.0 - rand.NextDouble(); //uniform(0,1] random doubles
+            double u2 = 1.0 - rand.NextDouble();
+            var p1 = Math.Sqrt((-2.0) * Math.Log(u1));
+            var sinArg = 2.0 * Math.PI * u2;
+            var p2 = Math.Sin(sinArg);
+            double randStdNormal = Math.Abs(p1 * p2); //random normal(0,1)
+            return randStdNormal;
         }
+        
     }
 }

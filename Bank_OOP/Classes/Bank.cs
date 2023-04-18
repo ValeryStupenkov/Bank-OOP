@@ -12,16 +12,16 @@ namespace Bank_OOP.Classes
         // Количество клерков
         int N;
 
-        // Макс. длина очереди
+        // Макс.возможная длина очереди
         int K;
 
         // Очередь заявок
-        public Queue<Request> requests = new Queue<Request>();
+        public Queue<Request> requestsQueue = new Queue<Request>();
 
-        // Список брабатываемых заявок
+        // Массив брабатываемых заявок
         public Request?[] handlingRequests;
 
-        // Максимальная длина очереди
+        // Максимальная длина очереди 
         public int maxQueueSize = 0;
 
         // Общая прибыль
@@ -39,11 +39,11 @@ namespace Bank_OOP.Classes
             handlingRequests = new Request?[N];
         }
 
-        // Добавить заявку в очередь
-        public bool HandleRequest(Request request)
+        // Проверить, можно ли добавить заявку в очередь
+        public bool CheckRequestQueue()
         {
-            int newQueueSize = requests.Count() + 1;
-            if (newQueueSize < K)
+            int newQueueSize = requestsQueue.Count() + 1;
+            if (newQueueSize <= K)
             {
                 if (newQueueSize > maxQueueSize)
                     maxQueueSize = newQueueSize;
@@ -53,7 +53,7 @@ namespace Bank_OOP.Classes
                 return false;
         }
 
-        public int UpdateHandledList(int timeNewRequest)
+        public int UpdateHandlingList(int timeNewRequest)
         {
             int servedRequests = 0;
             foreach (var request in handlingRequests)
@@ -70,11 +70,11 @@ namespace Bank_OOP.Classes
                 {
                     profit += handlingRequests[i].profit;
                     servedRequests++;
-                    if (requests.Count() == 0)
+                    if (requestsQueue.Count() == 0)
                         handlingRequests[i] = null;
-                    while (requests.Count() > 0)
+                    while (requestsQueue.Count() > 0)
                     {
-                        var new_req = requests.Dequeue();
+                        var new_req = requestsQueue.Dequeue();
                         new_req.servingTime += handlingRequests[i].residue;
                         // Добавление времени ожидания одной заявки
                         allRequestTime += new_req.timeWaiting + Math.Abs(handlingRequests[i].residue);
@@ -92,9 +92,9 @@ namespace Bank_OOP.Classes
                 }
                 else if (handlingRequests[i] == null)
                 {
-                    while (requests.Count() > 0)
+                    while (requestsQueue.Count() > 0)
                     {
-                        var new_req = requests.Dequeue();
+                        var new_req = requestsQueue.Dequeue();
                         if (handlingRequests[i] != null)
                         {
                             new_req.servingTime += handlingRequests[i].residue;
@@ -120,7 +120,7 @@ namespace Bank_OOP.Classes
 
         public void UpdateTimeWaiting(int timeToAdd)
         {
-            foreach (var request in requests)
+            foreach (var request in requestsQueue)
             {
                 request.timeWaiting += timeToAdd;
             }

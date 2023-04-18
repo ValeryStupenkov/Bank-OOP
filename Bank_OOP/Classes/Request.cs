@@ -17,7 +17,7 @@ namespace Bank_OOP.Classes
         // Прибыль банка от заявки
         public int profit;
 
-        // Остаток
+        // Остаток времени на текущем шаге
         public int residue;
 
         // Время ожидания в очереди
