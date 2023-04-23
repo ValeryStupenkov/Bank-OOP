@@ -23,6 +23,8 @@ namespace Bank_OOP.Classes
         const int clerksPayment = 2000;
         // Время начала работы банка (час)
         const int baseHours = 10;
+        // Время (в часах) с которого наступает вечер
+        const int timeEvening = 6;
 
         // Прибыль от одной заявки
         int[] requestProfit = new int[2] { 50, 3000 };
@@ -197,23 +199,15 @@ namespace Bank_OOP.Classes
         private bool IsWeekend()
         {
             // Последний день недели
-            if (currentTime[0] == daysInWeek)
-            {
-                return true;
-            }
-            else
-                return false;
+            
+            return currentTime[0] == daysInWeek;
         }
 
         // Поверить, что время - между 16 и 18 часов
         private bool IsTheTimeBetween6And8()
         {
-            if (currentTime[1] >= 6)
-            {
-                return true;
-            }
-            else
-                return false;
+            // Клиенты приходят чаще вечером
+            return currentTime[1] >= timeEvening;
         }
 
         // Определить временной интервал перед поступлением очередной заявки
@@ -224,27 +218,18 @@ namespace Bank_OOP.Classes
             int longQueuePenalty = 0;
             if (IsWeekend())
             {
-                forWeekend = 5;
+                forWeekend = 2;
             }
             if (IsTheTimeBetween6And8())
             {
-                forTheTimeBetween6And8 = 5;
+                forTheTimeBetween6And8 = 2;
             }
             if (bank.requestsQueue.Count() == queueLength)
             {
-                longQueuePenalty = 5;
+                longQueuePenalty = 2;
             }
-            double avg = (timeBetweenClients[0] + timeBetweenClients[1]) / 2.0;
-            double avg_in_minutes = 1.0 / avg;
-            int fluxDensity = 100 + forWeekend + forTheTimeBetween6And8 - longQueuePenalty;
-            avg_in_minutes = avg_in_minutes * fluxDensity / 100.0;
-            double new_avg = 1.0 / avg_in_minutes;
-            int[] newTimeInterval;
-            if (fluxDensity > 100)
-                newTimeInterval = new int[] { Math.Abs((int)(new_avg - avg)), (int)(new_avg + avg) };
-            else 
-                newTimeInterval = new int[] { timeBetweenClients[0] + Math.Abs((int)(new_avg - avg)), (int)(new_avg + avg) };
-            return newTimeInterval;
+            int correction = forWeekend + forTheTimeBetween6And8 - longQueuePenalty;
+            return new int[] { Math.Max(timeBetweenClients[0] - correction, 0), timeBetweenClients[1] - correction };
         }
 
         // Обновление текущего времени
